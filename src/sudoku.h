@@ -2,4 +2,4 @@
 #include "common.h"
 #include "util.h"
 
-void solve(Board& board, int sq);
+int solve(Board& board, int sq, int current_gcd, int max_gcd);

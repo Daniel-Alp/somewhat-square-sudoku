@@ -53,6 +53,15 @@ void undo_move(Board& board, int sq, int val) {
     board.squares[sq] = -1;
 } 
 
+int row_to_num(Board& board, int r) {
+    int n = 0;
+    for(int i = 0; i < 9; i++) {
+        n *= 10;
+        n += board.squares[r*9+i];
+    }
+    return n;
+}
+
 void print_board(Board& board) {
     for (int i = 0; i < 9; i++) {
         for (int j = 0; j < 9; j++) {
@@ -65,5 +74,4 @@ void print_board(Board& board) {
         }
         std::cout << std::endl;
     }
-    std::cout << std::endl;
 }

@@ -17,4 +17,6 @@ void make_move(Board& board, int sq, int val);
 
 void undo_move(Board& board, int sq, int val);
 
+int row_to_num(Board& board, int r);
+
 void print_board(Board& board);
