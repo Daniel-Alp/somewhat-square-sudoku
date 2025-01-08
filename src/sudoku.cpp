@@ -24,7 +24,7 @@ int solve(Board& board, int sq, int current_gcd, int max_gcd) {
     }
 
     int candidates = candidates_bitmask(board, sq);
-    for (int val = 0; val < 9; val++) {
+    for (int val = 0; val < 10; val++) {
         if (candidates & (1 << val)) {
             make_move(board, sq, val);
             max_gcd = std::max(max_gcd, solve(board, sq+1, current_gcd, max_gcd));

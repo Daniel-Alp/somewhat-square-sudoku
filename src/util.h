@@ -7,9 +7,10 @@ struct Board {
     std::array<int, 9> rows;
     std::array<int, 9> cols;
     std::array<int, 9> boxes;
+    int ignored_val;
 };
 
-Board create_board(std::string& inp);
+Board create_board(std::string& inp, int ignored_val);
 
 int candidates_bitmask(Board& board, int sq);
 

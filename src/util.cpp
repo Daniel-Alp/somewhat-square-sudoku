@@ -1,16 +1,17 @@
 #include <iostream>
 #include "util.h"
 
-Board create_board(std::string& inp) {
+Board create_board(std::string& inp, int ignored_val) {
     Board board{};
+    board.ignored_val = ignored_val;
     for (int i = 0; i < 9; i++) {
         for(int j = 0; j < 9; j++) {
             int sq = i*9+j;
             if (inp[sq] == '.') {
                 board.squares[sq] = -1;
             } else {
-                int val = inp[sq] - '1';
-                board.squares[sq] = inp[sq] - '1';
+                int val = inp[sq] - '0';
+                board.squares[sq] = inp[sq] - '0';
                 board.rows[i] |= 1 << val;
                 board.cols[j] |= 1 << val;
                 board.boxes[(i/3)*3 + j/3] |= 1 << val;
@@ -25,7 +26,8 @@ int candidates_bitmask(Board& board, int sq) {
     if (board.squares[sq] != -1) {
         return 0;
     }
-    int bitmask = (1 << 9) - 1;
+    int bitmask = (1 << 11) - 1;
+    bitmask &= ~(1 << board.ignored_val);
     int r = sq / 9;
     int c = sq % 9;
     int b = (r/3)*3 + (c/3);
