@@ -7,18 +7,7 @@ int main() {
     Board board = create_board(inp);
 
     print_board(board);
-
-    for(int i = 0; i < 9; i++) {
-        std::cout << std::bitset<16>(board.rows[i]) << std::endl;
-    }
-    std::cout << std::endl;
-
-    for(int i = 0; i < 9; i++) {
-        std::cout << std::bitset<16>(board.cols[i]) << std::endl;
-    }
-    std::cout << std::endl;
-
-    for(int i = 0; i < 9; i++) {
-        std::cout << std::bitset<16>(board.boxes[i]) << std::endl;
+    for(int sq = 0; sq < 81; sq++) {
+        std::cout << std::bitset<16>(candidates(board, sq)) << std::endl;
     }
 }

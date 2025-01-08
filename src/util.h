@@ -11,4 +11,6 @@ struct Board {
 
 Board create_board(std::string& inp);
 
+int candidates(Board& board, int sq);
+
 void print_board(Board& board);
